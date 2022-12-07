@@ -1,10 +1,6 @@
 import React from 'react';
 import './MyPortfolio.css';
 import { Link } from "react-router-dom";
-//import calcPic from "C:/Users/people/Documents/Work/Javascript/Portfolio Website/my-app/src/Images/Calculator.png";
-//import drumPic from "C:/Users/people/Documents/Work/Javascript/Portfolio Website/my-app/src/Images/Drum Machine.png";
-//import plpPic from "C:/Users/people/Documents/Work/Javascript/Portfolio Website/my-app/src/Images/Product Landing Page.png";
-//import avPic from "C:/Users/people/Documents/Work/Javascript/Portfolio Website/my-app/src/Images/Audio Visualizer.png";
 
 class MyPortfolio extends React.Component {
     render(){
