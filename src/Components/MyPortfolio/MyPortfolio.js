@@ -1,10 +1,10 @@
 import React from 'react';
 import './MyPortfolio.css';
 import { Link } from "react-router-dom";
-import calcPic from "C:/Users/people/Documents/Work/Javascript/Portfolio Website/my-app/src/Images/Calculator.png";
-import drumPic from "C:/Users/people/Documents/Work/Javascript/Portfolio Website/my-app/src/Images/Drum Machine.png";
-import plpPic from "C:/Users/people/Documents/Work/Javascript/Portfolio Website/my-app/src/Images/Product Landing Page.png";
-import avPic from "C:/Users/people/Documents/Work/Javascript/Portfolio Website/my-app/src/Images/Audio Visualizer.png";
+//import calcPic from "C:/Users/people/Documents/Work/Javascript/Portfolio Website/my-app/src/Images/Calculator.png";
+//import drumPic from "C:/Users/people/Documents/Work/Javascript/Portfolio Website/my-app/src/Images/Drum Machine.png";
+//import plpPic from "C:/Users/people/Documents/Work/Javascript/Portfolio Website/my-app/src/Images/Product Landing Page.png";
+//import avPic from "C:/Users/people/Documents/Work/Javascript/Portfolio Website/my-app/src/Images/Audio Visualizer.png";
 
 class MyPortfolio extends React.Component {
     render(){
@@ -32,19 +32,19 @@ class MyPortfolio extends React.Component {
                         </div>
                         <div className="project project-tile">
                             <Link to="/Calculator" className="nav-link-portfolio">
-                                <img className="project-image" src={calcPic} alt="project"/>
+                                <img className="project-image" src="https://jeremymbeckerbucket.s3.us-west-1.amazonaws.com/Calculator.png" alt="project"/>
                                 <p className="project-tile-description">Calculator</p>
                             </Link>
                         </div>
                         <div className="project project-tile">
                             <Link to="/Drum-Machine" className="nav-link-portfolio">
-                                <img className="project-image" src={drumPic} alt="project"/>
+                                <img className="project-image" src="https://jeremymbeckerbucket.s3.us-west-1.amazonaws.com/Drum+Machine.png" alt="project"/>
                                 <p className="project-tile-description">Drum Machine</p>
                             </Link>
                         </div>
                         <div className="project project-tile">
                             <Link to="/Product-Landing-Page" className="nav-link-portfolio">
-                                <img className="project-image" src={plpPic} alt="project"/>
+                                <img className="project-image" src="https://jeremymbeckerbucket.s3.us-west-1.amazonaws.com/Product+Landing+Page.png" alt="project"/>
                                 <p className="project-tile-description">Product Landing Page</p>
                             </Link>
                         </div>
@@ -56,7 +56,7 @@ class MyPortfolio extends React.Component {
                         </div>
                         <div className="project project-tile">
                             <Link to="/AV" className="nav-link-portfolio">
-                                <img className="project-image" src={avPic} alt="project"/>
+                                <img className="project-image" src="https://jeremymbeckerbucket.s3.us-west-1.amazonaws.com/Audio+Visualizer.png" alt="project"/>
                                 <p className="project-tile-description">Audio Visualizer</p>
                             </Link>
                         </div>
