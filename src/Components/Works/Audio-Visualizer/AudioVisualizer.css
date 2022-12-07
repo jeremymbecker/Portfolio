@@ -1,0 +1,141 @@
+#audio-visualizer{
+    background: url('https://wallpapercave.com/wp/wp5144550.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    width: 2048px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#canvas1{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+}
+
+.slider_container {
+    width: 2000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    position: absolute;
+    top: 765px;
+    left: 7.5px;
+}
+
+.seek_slider {
+    width: 80%;
+    height: 2px;
+    -webkit-appearance: none;
+    background: linear-gradient(90deg, rgb(50,30,200) 0%, rgb(251,243,236) 0%);
+}
+
+.seek_slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 12px;
+    background: rgb(251,243,236);
+    cursor: pointer;
+    overflow: visible;
+}
+
+.current-time,
+.total-duration {
+  padding: 10px;
+  color: white;
+}
+
+#controls{
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    z-index: 100;
+    position: absolute;
+    top: 900px;
+    left: 0;
+}
+
+#volume-controls{
+    display: inline-flex;
+    align-items: center;
+    position: absolute;
+    left: 50px;
+}
+
+#volume-slider{
+    width: 400px;
+    height: 6px;
+    border-radius: 12px;
+    position: absolute;
+    left: 125px;
+}
+
+.volumeSlider{
+    -webkit-appearance: none;
+    background: linear-gradient(90deg, rgb(168,221,240) 100%, rgb(251,243,236) 100%);
+}
+
+.volumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 12px;
+    background: rgb(251,243,236);
+    cursor: pointer;
+    overflow: visible;
+}
+
+#play-controls{
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    left: 912.5px;
+    width: 225px;
+}
+
+#extra-controls{
+    display: inline-flex;
+    justify-content: space-between;
+    width: 300px;
+    position: absolute;
+    left: 1600px;
+}
+
+.button-cursor-pointer{
+    cursor: pointer;
+}
+
+#fileupload{
+    position: absolute;
+    color: white;
+    z-index: 100;
+    position: absolute;
+    top: 50px;
+    left: 960px;
+}
+
+#playlist{
+    height: 25px;
+    width: 300px;
+    z-index: 100;
+    position: absolute;
+    top: 100px;
+}
+
+#playbackSpeeds {
+    visibility: hidden;
+}
