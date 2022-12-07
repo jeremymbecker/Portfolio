@@ -1,4 +1,4 @@
-import * as React from "https://cdn.skypack.dev/react@17.0.1";
+import React from 'react';
 import './AudioVisualizer.css'
 
 class AV extends React.Component{
@@ -179,7 +179,7 @@ class AV extends React.Component{
         this.setState({
             volume: volSlider.value
         });
-        
+
         // Change the volume icon's display
         if(song.volume >= 0.5){
             document.getElementById('volume-icon').classList.remove("fa-volume-low");
