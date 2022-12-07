@@ -42,5 +42,8 @@
     "fs": false,
     "path": false,
     "os": false
+  },
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.2.0"
   }
 }
