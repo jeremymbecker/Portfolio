@@ -39,7 +39,7 @@ class TributePage extends React.Component{
                     </ul>
                     <p className="paragraph-format"><em>"Borlaug's life and achievement are testimony to the far-reaching contribution that one man's towering intellect, persistence and scientific vision can make to human peace and progress." </em></p>
                     <p className="paragraph-format"><em>-- Indian Prime Minister Manmohan Singh</em></p>
-                    <p className="paragraph-format"><b> If you have time, you should read more about this incredible human being on his <a id="tribute-link" target="_blank" rel="noreferrer" href="https://en.wikipedia.org/wiki/Norman_Borlaug"><u>Wikipedia entry</u></a>.</b></p>
+                    <p className="paragraph-format"><b> If you have time, you should read more about this incredible human being on his <a id="tribute-link" target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Norman_Borlaug"><u>Wikipedia entry</u></a>.</b></p>
                 </div>
             </main>
         );

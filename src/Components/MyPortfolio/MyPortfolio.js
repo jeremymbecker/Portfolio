@@ -49,7 +49,7 @@ class MyPortfolio extends React.Component {
                             </Link>
                         </div>
                         <div className="project project-tile">
-                            <a href="https://X6T6B6MWZCQPCTCM.anvil.app/HPXVYUSFEBAE7QOCDVO7266T" className="nav-link-portfolio" target="_blank" rel="noreferrer">
+                            <a href="https://X6T6B6MWZCQPCTCM.anvil.app/HPXVYUSFEBAE7QOCDVO7266T" className="nav-link-portfolio" target="_blank" rel="noopener noreferrer">
                                 <img className="project-image" src="https://cdn2.stylecraze.com/wp-content/uploads/2013/11/Top-25-Most-Beautiful-Daisy-Flowers.jpg" alt="project"/>
                                 <p className="project-tile-description">Flower Classifier</p>
                             </a>
@@ -66,19 +66,19 @@ class MyPortfolio extends React.Component {
                     <h1 className="portfolio-h1">Thank you for viewing my page</h1>
                     <h4 className="portfolio-h4">You can find out more about me here</h4>
                     <div className="profile-links-and-contacts">
-                        <a id="profile-link" href="https://codepen.io/your-work/" target="_blank" rel="noreferrer" className="nav-link-portfolio profile-links-and-contacts-look">
+                        <a id="profile-link" href="https://codepen.io/your-work/" target="_blank" rel="noopener noreferrer" className="nav-link-portfolio profile-links-and-contacts-look">
                             <i className="fa fa-free-code-camp contacts-icon" aria-hidden="true"></i>
                             freeCodeCamp
                         </a>
-                        <a id="Github-account-link" href="https://github.com/jeremymbecker" target="_blank" rel="noreferrer" className="nav-link-portfolio profile-links-and-contacts-look">
+                        <a id="Github-account-link" href="https://github.com/jeremymbecker" target="_blank" rel="noopener noreferrer" className="nav-link-portfolio profile-links-and-contacts-look">
                             <i className="fa fa-github contacts-icon" aria-hidden="true"></i>
                             GitHub
                         </a>
-                        <a id="LinkedIn-account-link" href="https://www.linkedin.com/in/jeremy-becker-268251202/" target="_blank" rel="noreferrer" className="nav-link-portfolio profile-links-and-contacts-look">
+                        <a id="LinkedIn-account-link" href="https://www.linkedin.com/in/jeremy-becker-268251202/" target="_blank" rel="noopener noreferrer" className="nav-link-portfolio profile-links-and-contacts-look">
                             <i className="fa fa-linkedin contacts-icon" aria-hidden="true"></i>
                             LinkedIn
                         </a>
-                        <a id="Email-account-link" href="mailto: jeremymichaelbecker97@gmail.com" target="_blank" rel="noreferrer" className="nav-link-portfolio profile-links-and-contacts-look">
+                        <a id="Email-account-link" href="mailto: jeremymichaelbecker97@gmail.com" target="_blank" rel="noopener noreferrer" className="nav-link-portfolio profile-links-and-contacts-look">
                             <i className="fa fa-google contacts-icon" aria-hidden="true"></i>
                             Email Me
                         </a>
