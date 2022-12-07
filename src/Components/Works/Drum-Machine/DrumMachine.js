@@ -1,5 +1,5 @@
-import * as React from "https://cdn.skypack.dev/react@17.0.1";
-import $ from "https://cdn.skypack.dev/jquery@3.6.0";
+import React from 'react';
+import $ from 'jquery';
 import './DrumMachine.css'
 
 let heaterSoundClips = [
