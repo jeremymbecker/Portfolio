@@ -377,19 +377,19 @@ class AV extends React.Component{
             <div id="audio-visualizer">
                 <canvas id="canvas1"></canvas>
                 <audio id="audio1" onTimeUpdate={this.seekUpdate} onSeeking={this.pauseSong} onEnded={this.next}></audio>
-                <input type="file" id="fileupload" accept="audio/*" onChange={this.handleUpload} multiple/>
-                <select id="playlist" name="your-playlist" defaultValue={"DEFAULT"} placeholder="Choose a song from your library" required onChange={this.handleChange}>
+                <input type="file" id="fileupload" placeholder="Choose files" accept="audio/*" onChange={this.handleUpload} multiple/>
+                <select id="playlist" name="your-playlist" defaultValue={"DEFAULT"} placeholder="Choose a song from your library" title="Click the dropdown to see your playlist" required onChange={this.handleChange}>
                     <option value="DEFAULT" disabled>Choose a song from your library</option>
                 </select>
                 <div className="slider_container">
                     <div id="current-time" className="current-time">00:00</div>
-                    <input type="range" min="0" max="100" defaultValue="0" step={"any"} id="seek-slider" className="seek_slider" onChange={this.seekTo} />
+                    <input type="range" placeholder="Song time" min="0" max="100" defaultValue="0" step={"any"} id="seek-slider" className="seek_slider" onChange={this.seekTo} />
                     <div id="total-duration" className="total-duration">00:00</div>
                 </div>
                 <div id="controls">
                     <div id="volume-controls">
                         <i id="volume-icon" className="fa-solid fa-volume-high fa-3x button-cursor-pointer" aria-hidden="true"></i>
-                        <input type="range" min="0" max="100" defaultValue={this.state.volume} id="volume-slider" className="volumeSlider" onChange={this.handleVolume} />
+                        <input type="range" placeholder="volume" min="0" max="100" defaultValue={this.state.volume} id="volume-slider" className="volumeSlider" onChange={this.handleVolume} />
                     </div>
                     <div id="play-controls">
                         <i id="previous" className="fa-solid fa-backward fa-3x button-cursor-pointer" aria-hidden="true" onClick={this.previousSong}></i>

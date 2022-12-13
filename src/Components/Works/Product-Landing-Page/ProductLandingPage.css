@@ -1,6 +1,6 @@
 #product-landing-page {
     font-family: sans-serif;
-    width: 2031px;
+    width: 100%;
 }
   
 #header {
@@ -155,11 +155,11 @@
 }
   
 .li-pricing {
-    margin: 0;
+    margin: 0 0 40px 0;
 }
   
-#select {
-    margin-top: 50px;
+.select-button {
+    margin-top: 15px;
     font-size: 20px;
     background-color: #fcc200;
     border: none;
@@ -168,8 +168,16 @@
     cursor: pointer;
 }
   
-#select:hover {
+#tenor-trombone-select:hover {
      background-color: orange;
+}
+
+#bass-trombone-select:hover {
+    background-color: orange;
+}
+
+#valve-trombone-select:hover {
+    background-color: orange;
 }
   
 .footer-container {
