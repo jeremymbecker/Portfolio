@@ -373,13 +373,13 @@ class DrumMachine extends React.Component {
             <div id="logo">
               <h1 className="drum-machine-h1"><strong><em>FCC <i className="fa fa-free-code-camp" aria-hidden="true"></i></em></strong></h1>
             </div>
-            <button id="power" className="power-button" onClick={this.handlePowerButtonClick}><i id ="power-icon" className="fa fa-power-off fa-2x" aria-hidden="true"></i></button>
+            <button id="power" className="power-button" aria-label="Power Button" onClick={this.handlePowerButtonClick}><i id ="power-icon" className="fa fa-power-off fa-2x" aria-hidden="true"></i></button>
             <div id="power-indicator" ></div>
             <div id="display-name-panel">
               <h2>{this.state.displayName}</h2>
             </div>
             <div id="volume-slider-drum-machine">
-              <input type="range" id="volume" min="0" max ="100" value ={this.state.volume} onChange={this.handleChange}></input>
+              <input type="range" id="volume" title="volume" min="0" max ="100" value ={this.state.volume} onChange={this.handleChange}></input>
             </div>
             <button id="drum-piano-switch" className="drum-piano" onClick={this.handleKitSwitchButtonClick}>
               Kit Switch

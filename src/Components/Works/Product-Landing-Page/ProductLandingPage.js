@@ -69,11 +69,9 @@ class ProductLandingPage extends React.Component{
                                 <h3 className="product-landing-page-h3">$600</h3>
                                 <ul className="ul-pricing">
                                     <li className="li-pricing">Standard trombone</li>
-                                    <br/>
-                                    <br/>
                                     <li className="li-pricing">Great for beginners</li>
                                 </ul>
-                                <input type="submit" id="select" value="Select"/>
+                                <input type="submit" id="tenor-trombone-select" value="Select" className="select-button"/>
                             </div>
                             <div className="pricing-container">
                                 <div className="pricing-top">
@@ -82,11 +80,9 @@ class ProductLandingPage extends React.Component{
                                 <h3 className="product-landing-page-h3">$900</h3>
                                 <ul className="ul-pricing">
                                     <li className="li-pricing">Larger than the tenor trombone</li>
-                                    <br/>
-                                    <br/>
                                     <li className="li-pricing">Largest bell in the trombone family</li>
                                 </ul>
-                                <input type="submit" id="select" value="Select"/>
+                                <input type="submit" id="bass-trombone-select" value="Select" className="select-button"/>
                             </div>
                             <div className="pricing-container">
                                 <div className="pricing-top">
@@ -95,11 +91,9 @@ class ProductLandingPage extends React.Component{
                                 <h3 className="product-landing-page-h3">$1200</h3>
                                 <ul className="ul-pricing">
                                     <li className="li-pricing">Plays similar to the trumpet</li>
-                                    <br/>
-                                    <br/>
                                     <li className="li-pricing">Great for jazz bands</li>
                                 </ul>
-                                <input type="submit" id="select" value="Select"/>
+                                <input type="submit" id="valve-trombone-select" value="Select" className="select-button"/>
                             </div>
                         </section>
                         <footer className="footer-container">
