@@ -1,7 +1,7 @@
 #my-portfolio {
   display: inline-flex;
   flex-direction: column;
-  width: 2031px;
+  width: 100%;
 }
 
 @media(max-width: 600px) {
