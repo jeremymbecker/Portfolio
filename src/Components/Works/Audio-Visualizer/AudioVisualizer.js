@@ -10,7 +10,11 @@ class AV extends React.Component{
             currentSongIndex: null,
             playing: false,
             songStarted: false,
-            volume: 100
+            volume: 100,
+            songEnded: false,
+            hasPlayed: false,
+            audioCtx: null,
+            audioElement: null
         };
         this.handleUpload = this.handleUpload.bind(this);
         this.handleSave = this.handleSave.bind(this);
@@ -25,7 +29,6 @@ class AV extends React.Component{
         this.previousSong = this.previousSong.bind(this);
         this.shuffle = this.shuffle.bind(this);
         this.repeat = this.repeat.bind(this);
-        this.songEnded = false;
     }
 
     componentDidMount(){
@@ -40,33 +43,7 @@ class AV extends React.Component{
         };
 
         const files = e.target.files[0];
-        console.log(files);
         
-        //const jsmediatags = window.jsmediatags;
-        //let songTitle = ""
-        /*jsmediatags.read(files, {
-            onSuccess: function(tag) {
-                // Array buffer to base64
-                console.log(tag.tags);
-               // const data = tag.tags.picture.data;
-               // const format = tag.tags.picture.format;
-               // let base64String = "";
-                //for (let i = 0; i < data.length; i++) {
-               //     base64String += String.fromCharCode(data[i]);
-               // }
-                // Output media tags
-                //document.querySelector("#cover").style.backgroundImage = `url(data:${format};base64,${window.btoa(base64String)})`;
-              
-                songTitle = tag.tags.title;
-                //document.querySelector("#artist").textContent = tag.tags.artist;
-                //document.querySelector("#album").textContent = tag.tags.album;
-                //document.querySelector("#genre").textContent = tag.tags.genre;
-            },
-            onError: function(error) {
-                console.log(error);
-            }
-        });
-        */  
         song.name = files.name;
         song.src = URL.createObjectURL(files);
         var list = document.getElementById("playlist");
@@ -79,32 +56,23 @@ class AV extends React.Component{
             playlistLength: this.state.playlistLength + 1,
             currentSongIndex: 0
         });
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        const audioContext = new AudioContext();
+        this.setState({
+            audioCtx: audioContext
+        }, () => console.log(this.state.audioCtx));
+        const audioElement = document.querySelector('audio');
+        this.setState({
+            audioElement: audioElement
+        }, () => console.log(this.state.audioElement));
     }
 
     handleSave(e){
-        // code not in use currently
-        //  if(this.state.playlist.length === 0){
-        //      return;
-        //  }
-       // let fs = require('fs');
-
-       // const file = fs.createWriteStream('MyPlaylist.txt');
-
-        //  file.on('error', (err) => {
-        //      console.log("Error while trying to write to file.");
-        //  });
-
-       // this.state.playlist.forEach((v) => {
-       //     file.write(v.join(', ') + '\n');
-       // });
-
-        //  file.end();
         const element = document.createElement("a");
 
         const file = new Blob([this.state.playlist], {
             type: "text/plain;charset=utf-8"
         });
-        console.log(file);
         element.href = URL.createObjectURL(file);
 
         element.download = "MyPlaylist.txt";
@@ -115,8 +83,9 @@ class AV extends React.Component{
     }
 
     handleChange(e){
-        document.getElementById("audio1").src = this.state.playlist[e.target.value].src;
-        document.getElementById("audio1").load();
+        let audio1 = this.state.audioElement;
+        audio1.src = this.state.playlist[e.target.value].src;
+        audio1.load();
         this.setState({
             currentSongIndex: parseInt(e.target.value),
             playing: false,
@@ -147,7 +116,6 @@ class AV extends React.Component{
         if (!isNaN(song.duration)){
             seekPosition = song.currentTime * (100 / song.duration);
             seekSlider.value = seekPosition;
-            console.log(seekSlider.value);
             var color = 'linear-gradient(90deg, rgb(50,30,200)' + seekSlider.value + '%, rgb(251,243,236)' + seekSlider.value + '%)';
             seekSlider.style.background = color;
  
@@ -202,14 +170,15 @@ class AV extends React.Component{
         if(this.state.playlistLength === 0){
             return;
         }
-        let audioCtx = new AudioContext();
+        //let audioCtx = new AudioContext();
         let audioSource;
         let analyser;
 
         const canvas = document.getElementById("canvas1");
         const ctx = canvas.getContext("2d");
         
-        const audio1 = document.getElementById("audio1");
+        //const audio1 = document.getElementById("audio1");   
+        let audio1 = this.state.audioElement; 
         if(audio1.src === ""){
             audio1.src = this.state.playlist[0].src;
             audio1.load();
@@ -218,34 +187,46 @@ class AV extends React.Component{
             this.setState({
                 currentSongIndex: 0,
                 playing: true,
-                songStarted: true
-            });
-            audio1.play();
+                songStarted: true,
+                hasPlayed: true
+            }, () => console.log(this.state.hasPlayed));
+            audio1.play();          
         }
         else{
             //if paused
             if(document.getElementById("playpause").classList[3] === "fa-circle-play"){
-                this.songEnded = false;
                 document.getElementById('playpause').classList.remove("fa-circle-play");
                 document.getElementById('playpause').classList.add("fa-circle-pause");
                 audio1.play();
+                this.setState({
+                    songEnded: false,
+                    playing: true
+                });
             }
             //pausing during playing
-            else if(document.getElementById("playpause").classList[3] === "fa-circle-pause" && this.songEnded === false){
+            else if(document.getElementById("playpause").classList[3] === "fa-circle-pause" && this.state.songEnded === false){
                 this.pauseSong();
             }
-            else if(document.getElementById("playpause").classList[3] === "fa-circle-pause" && this.songEnded === true){
+            else if(document.getElementById("playpause").classList[3] === "fa-circle-pause" && this.state.songEnded === true){
                 this.songEnded = false;
                 audio1.play();
             }
         }
-        
-        audioSource = audioCtx.createMediaElementSource(audio1);
-        analyser = audioCtx.createAnalyser();
-        audioSource.connect(analyser);
-        analyser.connect(audioCtx.destination);
+        if(this.state.hasPlayed === false){
+            audioSource = this.state.audioCtx.createMediaElementSource(audio1)
+            this.setState({
+                hasPlayed: true
+            })
+        }
+        analyser = this.state.audioCtx.createAnalyser();
+        if(audioSource.mediaElement.paused === false){
+            audioSource.connect(analyser);
+        }
+        //analyser = this.state.audioCtx.createAnalyser();
+        //audioSource.connect(analyser);
+        analyser.connect(this.state.audioCtx.destination);
         analyser.fftSize = 32768;
-        
+
         const bufferLength = analyser.frequencyBinCount;
         const dataArray = new Uint8Array(bufferLength);
 
@@ -265,15 +246,9 @@ class AV extends React.Component{
             for(let i = 0; i < 512; i++){
                 let index = (i + 10) * 10;
                 barHeight = data[index] * 2;
-                //console.log(barHeight);
-                //const red = 200;
-                //const green = 50;
-                //const blue = 0;
-                //console.log(red + " " + green + " " + blue);
+               
                 var grd = ctx.createLinearGradient(0, 200, 0, 550);
-              //  grd.addColorStop(0.2, '#F9C449' );
-              //  grd.addColorStop(0.9, '#F04393');
-              //  grd.addColorStop(0, '#08203C');
+             
                 grd.addColorStop(1, '#3B16DE');
                 grd.addColorStop(0.97, '#071AD6');
                 grd.addColorStop(0.93, '#66209d');
@@ -285,9 +260,9 @@ class AV extends React.Component{
                 grd.addColorStop(0.7, '#F96A0A');
                 grd.addColorStop(0.65, '#F8990B');
                 grd.addColorStop(0.6, '#F1E60E');
-                //grd.addColorStop(1, '#ffaf7b')
+               
                 ctx.fillStyle = grd;
-                //ctx.fillStyle = 'rgb(' + red + ',' + green + ',' + blue + ')';
+                
                 ctx.fillRect(x, ((canvas.height-barHeight) - 330) / 1.4, barWidth, barHeight);
                 
                 x += barWidth;
@@ -297,10 +272,12 @@ class AV extends React.Component{
     }
 
     pauseSong(){
-        console.log('paused');
-        document.getElementById("audio1").pause();
+        this.state.audioElement.pause();
         document.getElementById('playpause').classList.remove("fa-circle-pause");
         document.getElementById('playpause').classList.add("fa-circle-play");
+        this.setState({
+            playing: false
+        })
     }
 
     next(){
@@ -393,7 +370,7 @@ class AV extends React.Component{
                     </div>
                     <div id="play-controls">
                         <i id="previous" className="fa-solid fa-backward fa-3x button-cursor-pointer" aria-hidden="true" onClick={this.previousSong}></i>
-                        <i id="playpause" className="fa-regular fa-circle-play fa-5x button-cursor-pointer" aria-hidden="true" onClick={this.playSong}></i>
+                        <i id="playpause" className="fa-regular fa-5x button-cursor-pointer fa-circle-play" aria-hidden="true" onClick={this.playSong}></i>
                         <i id="skip" className="fa-solid fa-forward fa-3x button-cursor-pointer" aria-hidden="true" onClick={this.skip}></i>
                     </div>
                     <div id="extra-controls">
