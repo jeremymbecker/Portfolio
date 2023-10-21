@@ -14,8 +14,6 @@ class MyPortfolio extends React.Component {
 
     handleToggle(e){
         if(this.state.lightMode === true){
-            console.log(this.state.lightMode);
-            console.log(document.querySelectorAll(".page-text-color-light")[0]);
             document.getElementById("welcome-section").style.backgroundImage = "url(https://jeremymbeckerbucket.s3.us-west-1.amazonaws.com/portfolio_background_1800x1200.jpg)"
             document.getElementById("about-section-background").classList.add("about-section-background-dark");
             document.getElementById("about-section-background").classList.remove("about-section-background-light");
