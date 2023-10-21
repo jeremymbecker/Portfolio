@@ -87,9 +87,9 @@ class AV extends React.Component{
             value: this.state.playlistLength
         };
 
-        var jsmediatags = window.jsmediatags;
-        const files = e.target.files[0];
-        jsmediatags.read(files, {
+        //var jsmediatags = window.jsmediatags;
+        //const files = e.target.files[0];
+        /*jsmediatags.read(files, {
             onSuccess: function(tag) {
                 // Array buffer to base64
                 const data = tag.tags.picture.data;
@@ -107,7 +107,7 @@ class AV extends React.Component{
             onError: function(error) {
                 console.log(error);
             }
-        });
+        });*/
         this.state.playlist.push(song);
         this.setState({
             playlistLength: this.state.playlistLength + 1,
