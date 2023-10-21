@@ -139,7 +139,6 @@ class Calculator extends React.Component {
             });
           }
           else if(equal !== true && op === true && negative === true){
-            console.log("I")
             var temp3 = eq.substring(0, eq.length-2);
             this.setState({
               number: 0,
@@ -487,4 +486,3 @@ class Calculator extends React.Component {
   }
 
   export default Calculator;
-  //export { default as Calculator } from "/Components/MyPortfolio/Calculator";
