@@ -144,7 +144,6 @@ class DrumMachine extends React.Component {
       return;
     }
     let volumeStr = "Volume: " + e.target.value;
-    console.log(volumeStr);
     this.setState({
       volume: e.target.value,
       displayName: volumeStr

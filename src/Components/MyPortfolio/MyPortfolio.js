@@ -417,6 +417,9 @@ class MyPortfolio extends React.Component {
                                     <div className="programming-language-framework-text-container programming-language-framework-text-container-light">
                                         <p className="programming-language-framework-text featured-project-light">ReactJS</p>
                                     </div>
+                                    <div className="programming-language-framework-text-container programming-language-framework-text-container-light">
+                                        <p className="programming-language-framework-text featured-project-light">Material UI</p>
+                                    </div>
                                 </div>
                             </div>
                             <div className="project-image-container">

@@ -1,24 +1,47 @@
 #audio-visualizer{
-    background: url('https://wallpapercave.com/wp/wp5144550.jpg');
+    background-image: url('https://images7.alphacoders.com/317/317275.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 100%;
+    height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
-    margin: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
 }
 
 #canvas1{
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 10;
+    width: 100%;
+    height: 100%;
+}
+
+#album-cover{
+    background-image: none;
+    background-size: cover;
+    width: 400px;
+    height: 400px;
+}
+
+#controls-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 206px;
+    width: 100%;
+    top: 216px;
+}
+
+#controls-background{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(235, 235, 235, 0.85);
     width: 100%;
     height: 100%;
 }
@@ -28,18 +51,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 100;
-    margin-top: 640px;
+    z-index: 1;
+    padding-top: 20px;
 }
 
 .seek_slider {
-    width: 80%;
+    width: 90%;
     height: 2px;
+    -webkit-appearance: none;
     appearance: none;
     background: linear-gradient(90deg, rgb(50,30,200) 0%, rgb(251,243,236) 0%);
 }
 
 .seek_slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
     appearance: none;
     height: 16px;
     width: 16px;
@@ -52,38 +77,82 @@
 .current-time,
 .total-duration {
   padding: 10px;
-  color: white;
+  color: black;
+}
+
+#song-info{
+    display: flex;
+    flex-direction: column;
+}
+
+#song-title{
+    margin: 0;
+    text-align: center;
+    font-size: 28px;
+}
+
+#song-artist{
+    margin: 0;
+    padding: 5px 0 20px 0;
+    text-align: center;
+    font-size: 14px;
 }
 
 #controls{
-    display: inline-flex;
-    justify-content: flex-start;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
-    z-index: 100;
-    margin-top: 53px;
+    z-index: 1;
+    padding-bottom: 10px;
 }
 
-#volume-controls{
-    display: inline-flex;
+#play-controls{
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    margin-left: 50px;
+    justify-content: space-between;
+    width: 20%;
+}
+
+.icon-spacing{
+    margin: 0 10px 0 10px;
+}
+
+.icon-spacing-end{
+    margin: 0 0 0 10px;
+}   
+
+#volume-controls{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#volume-icon{
+    margin: 0 10px 0 0;
 }
 
 #volume-slider{
-    width: 400px;
+    width: 200px;
     height: 6px;
     border-radius: 12px;
-    margin-left: 25px;
+}
+
+.volume-slider-hidden{
+    display: none;
 }
 
 .volumeSlider{
+    -webkit-appearance: none;
     appearance: none;
     background: linear-gradient(90deg, rgb(168,221,240) 100%, rgb(251,243,236) 100%);
+    margin: 0 10px 0 0;
 }
 
 .volumeSlider::-webkit-slider-thumb {
-    appearance: none;
+    -webkit-appearance: none;
     height: 16px;
     width: 16px;
     border-radius: 12px;
@@ -92,31 +161,8 @@
     overflow: visible;
 }
 
-#play-controls{
-    display: inline-flex;
-    align-items: center;
-     
-    margin-left: 375.5px;
-    width: 225px;
-}
-
-#previous{
-    margin-right: 24.5px;
-}
-
-#skip{
-    margin-left: 24.5px;
-}
-
-#extra-controls{
-    display: inline-flex;
-    
-    width: 300px;
-    margin-left: 462.5px;
-}
-
-#repeat{
-    margin-left: 204px;
+#right-controls{
+    padding-right: 20px;
 }
 
 .button-cursor-pointer{
@@ -124,19 +170,14 @@
 }
 
 #fileupload{
-    position: absolute;
     color: white;
-    z-index: 100;
-    top: 50px;
-}
-
-#playlist{
-    height: 25px;
-    width: 300px;
-    z-index: 100;
-    margin-top: 100px;
+    z-index: 1;
 }
 
 #playbackSpeeds {
     visibility: hidden;
+}
+
+input[type="file"] {
+    display: none;
 }
