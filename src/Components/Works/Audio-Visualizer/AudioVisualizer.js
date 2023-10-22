@@ -6,10 +6,8 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import Collapse from "@mui/material/Collapse";
-//import jsmediatags from 'jsmediatags'; 
+import Collapse from "@mui/material/Collapse"; 
 import './AudioVisualizer.css';
-//var jsmediatags = require("jsmediatags");
 
 class AV extends React.Component{
     constructor(props){
@@ -503,38 +501,6 @@ class AV extends React.Component{
             <div id="audio-visualizer">
                 <canvas id="canvas1"></canvas>
                 <audio id="audio1" onTimeUpdate={this.seekUpdate} onSeeking={this.pauseSong} onEnded={this.next}></audio>
-                {/*<input type="file" id="fileupload" placeholder="Choose files" accept="audio/*" onChange={this.handleUpload} multiple/>
-                <select id="playlist" name="your-playlist" defaultValue={"DEFAULT"} placeholder="Choose a song from your library" title="Click the dropdown to see your playlist" required onChange={this.handleChange}>
-                    <option value="DEFAULT" disabled>Choose a song from your library</option>
-        </select>*/}
-                {/*
-                <input type="file" id="fileupload" placeholder="Choose files" accept="audio/*" onChange={this.handleUpload} multiple/>
-                <select id="playlist" name="your-playlist" defaultValue={"DEFAULT"} placeholder="Choose a song from your library" title="Click the dropdown to see your playlist" required onChange={this.handleChange}>
-                    <option value="DEFAULT" disabled>Choose a song from your library</option>
-                </select>
-                <div id="controls-container">
-                    <div className="slider_container">
-                        <div id="current-time" className="current-time">00:00</div>
-                        <input type="range" placeholder="Song time" min="0" max="100" defaultValue="0" step={"any"} id="seek-slider" className="seek_slider" onChange={this.seekTo} />
-                        <div id="total-duration" className="total-duration">00:00</div>
-                    </div>
-                    <div id="controls">
-                        <div id="volume-controls">
-                            <i id="volume-icon" className="fa-solid fa-volume-high fa-3x button-cursor-pointer" aria-hidden="true"></i>
-                            <input type="range" placeholder="volume" min="0" max="100" defaultValue={this.state.volume} id="volume-slider" className="volumeSlider" onChange={this.handleVolume} />
-                        </div>
-                        <div id="play-controls">
-                            <i id="previous" className="fa-solid fa-backward fa-3x button-cursor-pointer" aria-hidden="true" onClick={this.previousSong}></i>
-                            <i id="playpause" className="fa-regular fa-5x button-cursor-pointer fa-circle-play" aria-hidden="true" onClick={this.playSong}></i>
-                            <i id="skip" className="fa-solid fa-forward fa-3x button-cursor-pointer" aria-hidden="true" onClick={this.skip}></i>
-                        </div>
-                        <div id="extra-controls">
-                            <i id="shuffle" className="fa-solid fa-shuffle fa-3x button-cursor-pointer" aria-hidden="true" onClick={this.shuffle}></i>
-                            <i id="repeat" className="fa-solid fa-repeat fa-3x button-cursor-pointer" aria-hidden="true" onClick={this.repeat}></i>
-                        </div>
-                    </div>
-                </div>
-                */}
                 <div id="album-cover"></div>
                 <div id="controls-container">
                     <div id="controls-background">
